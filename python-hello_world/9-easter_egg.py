@@ -2,4 +2,3 @@
 import this
 
 zen_of_python = this.s
-print(zen_of_python[:98])
