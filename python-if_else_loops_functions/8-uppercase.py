@@ -3,10 +3,8 @@
 
 def uppercase(str):
     """Search uppercase"""
-    for i in range(len(str)):
-        if str[i] >= 'a' and str[i] <= 'z':
-            str_up = str[i].swapcase()
-            print("{}".format(str_up), end="")
-        else:
-            print("{}".format(str[i]), end="")
+    for i in str:
+        if ord(i) >= 97 and ord(i) <= 122:
+            i = chr(ord(i) - 32)
+        print("{}".format(i), end="")
     print()
