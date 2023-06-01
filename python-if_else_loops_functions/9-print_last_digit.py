@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 # 9-print_last_digit.py
 
 def print_last_digit(number):
