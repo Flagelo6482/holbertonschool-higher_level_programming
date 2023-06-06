@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 # 6-print_matrix_integer.py
-# Francisco Jesus
 
 def print_matrix_integer(matrix=[[]]):
-    """Matrix!"""
     if len(matrix) == 1:
         return print()
     else:
@@ -12,5 +10,5 @@ def print_matrix_integer(matrix=[[]]):
                 if isinstance(matrix[i][q], int):
                     if q == (len(matrix) - 1):
                         print("{}".format(matrix[i][q]))
-                        break
-                    print("{:d}".format(matrix[i][q]), end=" ")
+                    else:
+                        print("{:d}".format(matrix[i][q]), end=" ")
