@@ -2,6 +2,7 @@
 # 6-print_matrix_integer.py
 
 def print_matrix_integer(matrix=[[]]):
+    """Matrix!"""
     if len(matrix) == 1:
         return print()
     else:
