@@ -3,6 +3,11 @@
 
 def print_matrix_integer(matrix=[[]]):
     for i in matrix:
+        flag = 0
         for j in i:
-            print("{:d}".format(j), end="")
-        print()
+            if flag == 0:
+                flag = 1
+            else:
+                print(" ", end="")
+            print("{:d}".format(j), end=" ")
+        print("")
