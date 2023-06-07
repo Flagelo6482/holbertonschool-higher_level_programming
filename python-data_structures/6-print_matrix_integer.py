@@ -7,8 +7,8 @@ def print_matrix_integer(matrix=[[]]):
     else:
         for i in range(len(matrix)):
             for q in range(len(matrix)):
-                print("{:d}".format(matrix[i][q]), end="")
-                if q != len(matrix[i] - 1:
-                            print(" ", end="")
-
+                if isinstance(matrix[i][q], int):
+                    print("{:d}".format(matrix[i][q]), end="")
+                    if q != len(matrix[i]) - 1:
+                        print(" ", end="")
             print("")
