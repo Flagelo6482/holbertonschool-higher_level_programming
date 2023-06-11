@@ -2,7 +2,8 @@
 
 def safe_print_integer(value):
     try:
-        print("{:d}".format(isinstance(value, int)))
+        isinstance(value, int)
+        print("{:d}".format(value))
         return True
 
     except ValueError:
