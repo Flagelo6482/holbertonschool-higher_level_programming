@@ -1,14 +1,6 @@
 #!/usr/bin/python3
-# 6-print_matrix_integer.py
 
 def print_matrix_integer(matrix=[[]]):
-    if len(matrix) == 1:
-        return print("")
-    else:
-        for i in range(len(matrix)):
-            for q in range(len(matrix)):
-                if isinstance(matrix[i][q], int):
-                    print("{:d}".format(matrix[i][q]), end="")
-                    if q != len(matrix[i]) - 1:
-                        print(" ", end="")
-            print("")
+    for i in matrix:
+        formated = " ".join(["{:d}".format(num) for num in i])
+        print(formated)
