@@ -2,4 +2,5 @@
 
 class Square:
     """Clase vacía!"""
-    pass
+    def __init__(self):
+        pass
