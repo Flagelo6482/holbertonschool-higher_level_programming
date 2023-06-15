@@ -14,13 +14,6 @@ class Square:
         else:
             self.__size = size
 
-    """Function that returns the area of the square!"""
-    def area(self):
-        if not isinstance(self.__size, int):
-            raise TypeError("size must be an integer")
-        else:
-            return self.__size * self.__size
-
     """Property to retun a private attribute"""
     @property
     def size(self):
@@ -29,4 +22,16 @@ class Square:
     """Property to update a private value"""
     @size.setter
     def size(self, value):
-        self.__size = value
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
+
+    """Function that returns the area of the square!"""
+    def area(self):
+        if not isinstance(self.__size, int):
+            raise TypeError("size must be an integer")
+        else:
+            return self.__size * self.__size
