@@ -1,8 +1,8 @@
 The ''0-add_integer.py'' module
-=============================
+===============================
 
 Using ''add_integer''
--------------------
+---------------------
 
 This is a sample text file. First import
 
