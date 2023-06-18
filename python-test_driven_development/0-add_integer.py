@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-
 """
 Sum arithmetic
 
 Function
 """
+
 
 def add_integer(a, b=98):
     """
