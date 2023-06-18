@@ -1,12 +1,12 @@
-The '0-add_integer.py' module
+The ''0-add_integer.py'' module
 =============================
 
-Using 'add_integer'
+Using ''add_integer''
 -------------------
 
 This is a sample text file. First import
 
-'add_integer' from the '0-add_integer' module:
+''add_integer'' from the ''0-add_integer'' module:
 
 >>> add_integer = __import__('0-add_integer').add_integer
 >>>
