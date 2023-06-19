@@ -34,29 +34,29 @@ class Rectangle:
         self.__width = value
 
     def area(self):
-        return (self.height * self.width)
+        return (self.__height * self.__width)
 
     def perimeter(self):
-        if self.height == 0 or self.width == 0:
+        if self.__height == 0 or self.__width == 0:
             return (0)
         else:
-            return (self.height * 2 + self.width * 2)
+            return (self.__height * 2 + self.__width * 2)
 
     def __str__(self):
-        if self.height == 0 or self.width == 0:
+        if self.__height == 0 or self.__width == 0:
             return ""
         rectangle = ""
         i = 0
-        while i < self.height:
+        while i < self.__height:
             j = 0
-            while j < self.width:
+            while j < self.__width:
                 rectangle += "#"
                 j += 1
-            if i == self.height - 1:
+            if i == self.__height - 1:
                 break
             rectangle += "\n"
             i += 1
         return rectangle
 
     def __repr__(self):
-        return f"Rectangle({self.width}, {self.height})"
+        return f"Rectangle({self.__width}, {self.__height})"
