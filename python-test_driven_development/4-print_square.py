@@ -3,7 +3,9 @@
 Print Square
 """
 
+
 def print_square(size):
+    """Square print!"""
     if not isinstance(size, int):
         raise TypeError("size must be an integer")
     elif size < 0:
