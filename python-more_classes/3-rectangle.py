@@ -47,6 +47,7 @@ class Rectangle:
         if self.height == 0 or self.width == 0:
             return ""
         rectangle = ""
+
         i = 0
         while i < self.height:
             j = 0
