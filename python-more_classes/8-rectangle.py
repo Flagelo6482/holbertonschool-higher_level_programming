@@ -80,7 +80,7 @@ class Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
         elif not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
-        elif rec_1 == rec_2 or rec_1 > rec_2:
+        elif rec_1 >= rec_2:
             return rect_1
         elif rec_1 < rec_2:
             return rect_2
