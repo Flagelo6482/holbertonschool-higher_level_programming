@@ -1,7 +1,10 @@
 #!/usr/bin/python3
+"""A square is a rectangle
 
+Class "rectangle", printing a
+aquare with width and height specified
 
-"""A square is a rectangle"""
+"""
 
 
 class Rectangle:
