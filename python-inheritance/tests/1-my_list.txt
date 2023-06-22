@@ -4,9 +4,12 @@ The ''1-my_list.py'' module
 Using ''print_sorted''
 ----------------------
 
-Importing the calass from the module:
+This is an example text file. First import
+''print_sorted'' from the ''1-my_list.py'' module:
+
+''MyList'' from the ''1-my_list.py'' module:
+
 >>> MyList = __import__("1-my_list").MyList
->>>
 >>> my_list = MyList()
 >>> my_list.append(1)
 >>> my_list.append(4)
