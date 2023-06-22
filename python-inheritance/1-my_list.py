@@ -5,6 +5,12 @@
 
 
 class MyList(list):
-    """Print the list but sorted"""
+    """Clas that prints an ordered list"""
     def print_sorted(self):
+        """
+        Function that prints
+        and ordered list
+
+
+        """
         print(sorted(self))
