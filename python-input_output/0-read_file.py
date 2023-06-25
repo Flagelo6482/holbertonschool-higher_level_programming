@@ -7,4 +7,5 @@
 def read_file(filename=""):
     """Function to read a file and print it"""
     with open(filename, mode="r", encoding='utf-8') as file:
-        print(file.read())
+        var = file.read()
+        print(var)
