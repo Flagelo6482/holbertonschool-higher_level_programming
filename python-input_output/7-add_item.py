@@ -4,18 +4,21 @@
 """Load, add, save"""
 
 
-import json
 import sys
+import json
 
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
+file = "add_item.json"
+i = 1
+lista = []
 
-"""
-Script that adds all arguments to a python list
-and then save them to a file
-"""
-args = sys.argv[1:]
+#Agregamos todos los argumentos en una lista
+while i < len(sys.argv):
+    lista.append(sys.argv[i])
+    i += 1
 
-load_from_json_file("add_items.json")
-save_to_json_file(args, "add_items.json")
+lista = load_from_json_file(file)
+
+save_to_json_file(lista, file)
