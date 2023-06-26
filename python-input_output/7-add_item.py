@@ -17,5 +17,5 @@ and then save them to a file
 """
 args = sys.argv[1:]
 
-save_to_json_file(args, "add_items.json")
 load_from_json_file("add_items.json")
+save_to_json_file(args, "add_items.json")

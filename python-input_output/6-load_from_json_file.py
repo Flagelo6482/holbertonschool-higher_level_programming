@@ -16,5 +16,4 @@ def load_from_json_file(filename):
             mode(mode)       :Openning mode
             encoding(coding) :Encoding
         """
-        objc = json.load(file)
-    return objc
+        return json.loads(file.read())
