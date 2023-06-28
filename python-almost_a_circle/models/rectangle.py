@@ -117,5 +117,10 @@ class Rectangle(Base):
         """
         User readable string
         """
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
-        {self.__width}/{self.__height}"
+        i = self.id
+        x = self.__x
+        y = self.__y
+        w = self.__width
+        h = self.__height
+        texto = ("[Rectangle] ({}) {}/{} - {}/{}".format(i, x, y, w, h))
+        return texto
