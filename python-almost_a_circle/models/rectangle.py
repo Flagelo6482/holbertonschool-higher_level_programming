@@ -128,3 +128,21 @@ class Rectangle(Base):
         h = self.__height
         texto = ("[Rectangle] ({}) {}/{} - {}/{}".format(i, x, y, w, h))
         return texto
+
+    def update(self, *args):
+        """
+        Function that assigns an argument
+        to each attribute
+        Args:
+            args(tuple) : Tuple of arguments
+        """
+        if len(args) == 1:
+            self.id = args[0]
+        elif len(args) == 2:
+            self.__width = args[1]
+        elif len(args) == 3:
+            self.__height = args[2]
+        elif len(args) == 4:
+            self.__x = args[3]
+        elif len(args) == 5:
+            self.__y = args[4]
