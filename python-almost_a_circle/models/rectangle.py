@@ -129,20 +129,33 @@ class Rectangle(Base):
         texto = ("[Rectangle] ({}) {}/{} - {}/{}".format(i, x, y, w, h))
         return texto
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Function that assigns an argument
         to each attribute
         Args:
             args(tuple) : Tuple of arguments
         """
-        if len(args) == 1:
-            self.id = args[0]
-        elif len(args) == 2:
-            self.__width = args[1]
-        elif len(args) == 3:
-            self.__height = args[2]
-        elif len(args) == 4:
-            self.__x = args[3]
-        elif len(args) == 5:
-            self.__y = args[4]
+        if len(args) != 0:
+            if len(args) == 1:
+                self.id = args[0]
+            elif len(args) == 2:
+                self.__width = args[1]
+            elif len(args) == 3:
+                self.__height = args[2]
+            elif len(args) == 4:
+                self.__x = args[3]
+            elif len(args) == 5:
+                self.__y = args[4]
+        else:
+            for key, value in kwargs.items():
+                if key == "height":
+                    self.__height = value
+                elif key == "width":
+                    self.__width = value
+                elif key == "x":
+                    self.__x = value
+                elif key == "y":
+                    self.__y = value
+                elif key == "id":
+                    self.id = value
