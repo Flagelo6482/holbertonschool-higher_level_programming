@@ -53,15 +53,14 @@ class Base:
             list_a = []
 
             for i in list_objs:
-                d = {"id": 0, "width": 0, "heigth": 0, "x": 0, "y": 0}
-                d["heigth"] = i.height
+                d = {"y": 0, "x": 0, "id": 0, "width": 0, "height": 0}
+                d["height"] = i.height
                 d["width"] = i.width
                 d["id"] = i.id
                 d["x"] = i.x
                 d["y"] = i.y
                 list_a.append(d)
 
-            for x in list_objs:
-                with open(file_name, mode="w") as file:
-                    j_son = cls.to_json_string(list_a)
-                    file.write(j_son)
+            with open(file_name, mode="w") as file:
+                j_son = cls.to_json_string(list_a)
+                file.write(j_son)
