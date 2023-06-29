@@ -49,18 +49,9 @@ class Base:
 
         if list_objs is None or len(list_objs) == 0:
             with open(file_name, mode="w") as file:
-                j_son = cls.to_json_string(list_a)
-                file.write(j_son)
+                file.write(cls.to_json_string(list_a))
         else:
             for i in list_objs:
-                d = {"y": 0, "x": 0, "id": 0, "width": 0, "height": 0}
-                d["height"] = i.height
-                d["width"] = i.width
-                d["id"] = i.id
-                d["x"] = i.x
-                d["y"] = i.y
-                list_a.append(d)
-
+                list_a.append(i.to_dictionary())
             with open(file_name, mode="w") as file:
-                j_son = cls.to_json_string(list_a)
-                file.write(j_son)
+                file.write(cls.to_json_string(list_a))
