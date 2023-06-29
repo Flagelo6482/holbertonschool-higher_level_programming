@@ -45,13 +45,11 @@ class Base:
             list_objs(list) :Instance list
         """
         file_name = f"{cls.__name__}.json"
-
+        list_a = []
         if list_objs is None or len(list_objs) == 0:
             with open(file_name, mode="w") as file:
-                file.write("[]")
+                file.write(cls.to_json_string(list_a))
         else:
-            list_a = []
-
             for i in list_objs:
                 d = {"y": 0, "x": 0, "id": 0, "width": 0, "height": 0}
                 d["height"] = i.height
