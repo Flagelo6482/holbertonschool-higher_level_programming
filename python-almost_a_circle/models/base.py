@@ -36,3 +36,32 @@ class Base:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+        Class method that writes a JSON representation to a file
+        Args:
+            list_objs(list) :Instance list
+        """
+        file_name = f"{cls.__name__}.json"
+
+        if list_objs is None or len(list_objs) == 0:
+            with open(file_name, mode="w") as file:
+                file.write("[]")
+        else:
+            list_a = []
+
+            for i in list_objs:
+                d = {"id": 0, "width": 0, "heigth": 0, "x": 0, "y": 0}
+                d["heigth"] = i.height
+                d["width"] = i.width
+                d["id"] = i.id
+                d["x"] = i.x
+                d["y"] = i.y
+                list_a.append(d)
+
+            for x in list_objs:
+                with open(file_name, mode="w") as file:
+                    j_son = cls.to_json_string(list_a)
+                    file.write(j_son)
