@@ -25,3 +25,24 @@ class Square(Rectangle):
         User readable string
         """
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+
+    @property
+    def size(self):
+        """
+        Return width
+        """
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """
+        Sets the value of the variable
+        Args:
+            value(int) :Int
+        """
+        if type(value) != int:
+            raise TypeError("width must be an integer")
+        elif value < 0:
+            raise ValueError("width must be > 0")
+        self.width = value
+        self.height = value
