@@ -67,3 +67,15 @@ class Base:
             return list()
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Class method, which creates a dummy instance and returns it
+        Args:
+            cls(class)       :Class
+            dictionary(dict) :Arguments
+        """
+        inst = cls(width=1, height=1, x=0, y=0)
+        inst.update(**dictionary)
+        return inst
