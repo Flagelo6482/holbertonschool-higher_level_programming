@@ -76,6 +76,6 @@ class Base:
             cls(class)       :Class
             dictionary(dict) :Arguments
         """
-        inst = cls(width=1, height=1, x=0, y=0)
+        inst = cls(**dictionary)
         inst.update(**dictionary)
         return inst
