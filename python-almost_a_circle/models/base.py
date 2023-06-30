@@ -55,3 +55,14 @@ class Base:
                 list_a.append(i.to_dictionary())
             with open(file_name, mode="w") as file:
                 file.write(cls.to_json_string(list_a))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        That returns the list of the JSON string representation
+        Args:
+            json_string(dict): Dictionary
+        """
+        if len(json_string) == 0 or json_string is None:
+            return list()
+        return json.loads(json_string)
