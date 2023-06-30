@@ -63,7 +63,7 @@ class Base:
         Args:
             json_string(dict): Dictionary
         """
-        if len(json_string) == 0 or json_string is None:
+        if json_string is None:
             return list()
         else:
             return json.loads(json_string)
