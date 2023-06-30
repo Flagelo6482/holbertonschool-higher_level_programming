@@ -5,6 +5,7 @@
 
 
 import json
+import os
 
 
 class Base:
@@ -79,3 +80,24 @@ class Base:
         inst = cls(**dictionary)
         inst.update(**dictionary)
         return inst
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Function that returns a list of instances
+        """
+        file_name = f"{cls.__name__}.json"
+        list_inst = []
+
+        if not os.path.exists(file_name):
+            return list_inst
+
+        with open(file_name, mode="r") as file:
+            json_data = file.read()
+        dictionaries = cls.from_json_string(json_data)
+
+        for dict in dictionaries:
+            inst = cls.create(**dict)
+            list_inst.append(inst)
+
+        return list_inst
