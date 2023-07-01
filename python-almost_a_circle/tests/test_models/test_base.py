@@ -1,8 +1,19 @@
+"""Comentario"""
 import unittest
-
 from models.base import Base
 
-class UniTestBase(unittest.TestCase):
 
-    def test_to_json_string(self):
-        self.assertEqual(Base.to_json_string([]), "[]")
+class To_json_string(unittest.TestCase):
+    """Comentario"""
+
+    def test_to_json_string_empty(self):
+        """Comentario"""
+        self.assertEqual("[]", Base.to_json_string([]))
+
+    def test_to_json_string_none(self):
+        """Comentario"""
+        self.assertEqual("[]", Base.to_json_string(None))
+
+
+if __name__ == '__main__':
+    unittest.main()
