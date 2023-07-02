@@ -3,6 +3,7 @@ import unittest
 import json
 from models.base import Base
 from models.rectangle import Rectangle
+from models.square import Square
 
 
 class To_json_string(unittest.TestCase):
@@ -45,6 +46,13 @@ class To_json_string(unittest.TestCase):
         str_json = Rectangle.to_json_string(file_)
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.readline(), str_json)
+
+    def test_from_json_string(self):
+        """Comentario"""
+        list_output_1 = Rectangle.from_json_string('[]')
+        self.assertEqual([], list_output_1)
+        list_output_2 = Rectangle.from_json_string('[]')
+        self.assertEqual([], list_output_2)
 
 
 if __name__ == '__main__':
