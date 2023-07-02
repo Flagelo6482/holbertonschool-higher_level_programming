@@ -41,6 +41,9 @@ class To_json_string(unittest.TestCase):
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.readline(), '[]')
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.readline(), '[]')
         r1 = Rectangle(3, 4)
         r2 = Rectangle(5, 4)
         Rectangle.save_to_file([r1, r2])
