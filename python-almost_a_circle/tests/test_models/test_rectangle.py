@@ -19,7 +19,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(4, r_1.height)
         self.assertEqual(0, r_1.x)
         self.assertEqual(0, r_1.y)
-        self.assertEqual(11, r_1.id)
+        self.assertEqual(12, r_1.id)
         self.assertRaises(TypeError, Rectangle, "3", 2)
         self.assertRaises(TypeError, Rectangle, 2, "6")
         self.assertRaises(ValueError, Rectangle, -1, 3)
@@ -32,7 +32,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(2, r_2.height)
         self.assertEqual(3, r_2.x)
         self.assertEqual(4, r_2.y)
-        self.assertEqual(19, r_2.id)
+        self.assertEqual(20, r_2.id)
         self.assertRaises(TypeError, Rectangle, 4, 5, "2", 1)
         self.assertRaises(TypeError, Rectangle, 4, 5, 2, "1")
         self.assertRaises(ValueError, Rectangle, 4, 5, -2, 1)
@@ -65,6 +65,28 @@ class TestRectangle(unittest.TestCase):
     def test_area(self):
         r_7 = Rectangle(15, 15, 3, 3)
         self.assertEqual(225, r_7.area())
+
+    def test_display(self):
+        r_8 = Rectangle(2, 2)
+        self.assertEqual(None, r_8.display())
+
+    def test_update(self):
+        r_9 = Rectangle(20, 20, 20, 20)
+        self.assertEqual(None, r_9.update(height=1))
+
+    def test_to_dictionary(self):
+        r_10 = Rectangle(56, 34, 24, 12)
+        out = {'id': 25, 'width': 56, 'height': 34, 'x': 24, 'y': 12}
+        self.assertEqual(out, r_10.to_dictionary())
+        r_11 = Rectangle(10, 4, 3)
+        out = {'id': 26, 'width': 10, 'height': 4, 'x': 3, 'y': 0}
+        self.assertEqual(out, r_11.to_dictionary())
+        r_12 = Rectangle(5, 5)
+        out = {'id': 27, 'width': 5, 'height': 5, 'x': 0, 'y': 0}
+        self.assertEqual(out, r_12.to_dictionary())
+        r_13 = Rectangle(5, 5, 5, 5, 99)
+        out = {'id': 99, 'width': 5, 'height': 5, 'x': 5, 'y': 5}
+        self.assertEqual(out, r_13.to_dictionary())
 
 
 if __name__ == '__main__':
