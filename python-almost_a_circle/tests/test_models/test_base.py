@@ -51,7 +51,7 @@ class To_json_string(unittest.TestCase):
         """Comentario"""
         list_output_1 = Rectangle.from_json_string('[]')
         self.assertEqual([], list_output_1)
-        list_output_2 = Rectangle.from_json_string('[]')
+        list_output_2 = Rectangle.from_json_string(None)
         self.assertEqual([], list_output_2)
 
 
