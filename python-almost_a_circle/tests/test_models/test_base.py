@@ -31,6 +31,22 @@ class To_json_string(unittest.TestCase):
         self.assertEqual(j_s, Base.from_json_string(str_json))
         self.assertEqual(list, type(j_s))
 
+    def test_save_to_file(self):
+        """Comentario"""
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.readline(), '[]')
+        #Comentario
+        r1 = Rectangle(3, 4)
+        r2 = Rectangle(5, 4)
+        Rectangle.save_to_file([r1, r2])
+        file_1 = r1.to_dictionary()
+        file_2 = r2.to_dictionary()
+        file_ = [file_1, file_2]
+        str_json = Rectangle.to_json_string(file_)
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.readline(), str_json)
+
 
 if __name__ == '__main__':
     unittest.main()
