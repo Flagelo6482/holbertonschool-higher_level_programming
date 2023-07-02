@@ -31,6 +31,10 @@ class To_json_string(unittest.TestCase):
         j_s = json.loads(str_json)
         self.assertEqual(j_s, Base.from_json_string(str_json))
         self.assertEqual(list, type(j_s))
+        list_output_1 = Rectangle.from_json_string('[]')
+        self.assertEqual([], list_output_1)
+        list_output_2 = Rectangle.from_json_string(None)
+        self.assertEqual([], list_output_2)
 
     def test_save_to_file(self):
         """Comentario"""
@@ -46,13 +50,6 @@ class To_json_string(unittest.TestCase):
         str_json = Rectangle.to_json_string(file_)
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.readline(), str_json)
-
-    def test_from_json_string(self):
-        """Comentario"""
-        list_output_1 = Rectangle.from_json_string('[]')
-        self.assertEqual([], list_output_1)
-        list_output_2 = Rectangle.from_json_string(None)
-        self.assertEqual([], list_output_2)
 
 
 if __name__ == '__main__':
