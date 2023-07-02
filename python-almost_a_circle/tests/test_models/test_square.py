@@ -44,5 +44,6 @@ class TestSquare(unittest.TestCase):
         """Comentario"""
         pass
 
+
 if __name__ == '__main__':
     unittest.main()

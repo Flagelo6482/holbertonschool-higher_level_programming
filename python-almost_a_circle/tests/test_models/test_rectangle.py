@@ -101,7 +101,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(x_2.height, 7)
         self.assertEqual(x_2.id, 100)
 
-
     def test_to_dictionary(self):
         """Comentario"""
         r_10 = Rectangle(56, 34, 24, 12)
