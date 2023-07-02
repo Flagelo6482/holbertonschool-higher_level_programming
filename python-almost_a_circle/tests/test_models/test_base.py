@@ -1,6 +1,7 @@
 """Comentario"""
 import unittest
 import json
+import pycodestyle
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -97,6 +98,13 @@ class To_json_string(unittest.TestCase):
         self.assertAlmostEqual(soutput[1].height, 7)
         self.assertAlmostEqual(soutput[1].x, 9)
         self.assertAlmostEqual(soutput[1].y, 1)
+
+    def test_pycodestyle_conformance(self):
+        """Test that we conform to PEP8."""
+        style = pycodestyle.StyleGuide(quiet=True)
+        result = style.check_files(['models/base.py',
+                                    'tests/test_models/test_base.py'])
+        self.assertEqual(result.total_errors, 0, "Found errors")
 
 
 if __name__ == '__main__':
