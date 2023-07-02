@@ -78,6 +78,29 @@ class TestRectangle(unittest.TestCase):
     def test_update(self):
         r_9 = Rectangle(20, 20, 20, 20)
         self.assertEqual(None, r_9.update(height=1))
+        x_1 = Rectangle(10, 10, 10, 10)
+        x_1.update(5)
+        self.assertEqual(5, x_1.id)
+        self.assertEqual(10, x_1.width)
+        self.assertEqual(10, x_1.height)
+        self.assertEqual(10, x_1.x)
+        self.assertEqual(10, x_1.y)
+
+        x_2 = Rectangle(20, 20, 20, 20)
+        x_2.update(x=2)
+        self.assertEqual(x_2.x, 2)
+        self.assertEqual(x_2.y, 20)
+        self.assertEqual(x_2.width, 20)
+        self.assertEqual(x_2.height, 20)
+        self.assertEqual(x_2.id, 31)
+
+        x_2.update(x=3, id=100, height=7, y=4, width=10)
+        self.assertEqual(x_2.x, 3)
+        self.assertEqual(x_2.y, 4)
+        self.assertEqual(x_2.width, 10)
+        self.assertEqual(x_2.height, 7)
+        self.assertEqual(x_2.id, 100)
+
 
     def test_to_dictionary(self):
         """Comentario"""
