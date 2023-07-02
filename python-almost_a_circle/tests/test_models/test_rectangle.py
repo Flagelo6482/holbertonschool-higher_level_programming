@@ -70,19 +70,25 @@ class TestRectangle(unittest.TestCase):
         r_8 = Rectangle(2, 2)
         self.assertEqual(None, r_8.display())
 
+    def test_str(self):
+        r_14 = Rectangle(3, 3)
+        out = r_14.__str__()
+        self.assertEqual(out, r_14.__str__())
+
     def test_update(self):
         r_9 = Rectangle(20, 20, 20, 20)
         self.assertEqual(None, r_9.update(height=1))
 
     def test_to_dictionary(self):
+        """Comentario"""
         r_10 = Rectangle(56, 34, 24, 12)
-        out = {'id': 25, 'width': 56, 'height': 34, 'x': 24, 'y': 12}
+        out = {'id': 26, 'width': 56, 'height': 34, 'x': 24, 'y': 12}
         self.assertEqual(out, r_10.to_dictionary())
         r_11 = Rectangle(10, 4, 3)
-        out = {'id': 26, 'width': 10, 'height': 4, 'x': 3, 'y': 0}
+        out = {'id': 27, 'width': 10, 'height': 4, 'x': 3, 'y': 0}
         self.assertEqual(out, r_11.to_dictionary())
         r_12 = Rectangle(5, 5)
-        out = {'id': 27, 'width': 5, 'height': 5, 'x': 0, 'y': 0}
+        out = {'id': 28, 'width': 5, 'height': 5, 'x': 0, 'y': 0}
         self.assertEqual(out, r_12.to_dictionary())
         r_13 = Rectangle(5, 5, 5, 5, 99)
         out = {'id': 99, 'width': 5, 'height': 5, 'x': 5, 'y': 5}
