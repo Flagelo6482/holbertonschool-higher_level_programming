@@ -40,9 +40,18 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(ValueError, Square, 1, -2, 3, 4)
         self.assertRaises(ValueError, Square, 1, 2, -3, 4)
 
-    def test_size(self):
+    def test_save_to_file(self):
         """Comentario"""
-        pass
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertEqual("[]", f.read())
+        Square.save_to_file([])
+        with open("Square.json", "r") as f:
+            self.assertEqual("[]", f.read())
+        s = Square(10, 7, 2, 8)
+        Square.save_to_file([s])
+        with open("Square.json", "r") as f:
+            self.assertTrue(len(f.read()) == 39)
 
 
 if __name__ == '__main__':
