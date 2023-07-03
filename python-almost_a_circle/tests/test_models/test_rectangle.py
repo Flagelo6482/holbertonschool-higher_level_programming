@@ -4,6 +4,9 @@
 import unittest
 import json
 import pycodestyle
+import io
+from unittest import mock
+from unittest.mock import patch
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -19,7 +22,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(4, r_1.height)
         self.assertEqual(0, r_1.x)
         self.assertEqual(0, r_1.y)
-        self.assertEqual(12, r_1.id)
+        self.assertEqual(15, r_1.id)
         self.assertRaises(TypeError, Rectangle, "3", 2)
         self.assertRaises(TypeError, Rectangle, 2, "6")
         self.assertRaises(ValueError, Rectangle, -1, 3)
@@ -32,7 +35,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(2, r_2.height)
         self.assertEqual(3, r_2.x)
         self.assertEqual(4, r_2.y)
-        self.assertEqual(20, r_2.id)
+        self.assertEqual(23, r_2.id)
         self.assertRaises(TypeError, Rectangle, 4, 5, "2", 1)
         self.assertRaises(TypeError, Rectangle, 4, 5, 2, "1")
         self.assertRaises(ValueError, Rectangle, 4, 5, -2, 1)
@@ -67,8 +70,21 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(225, r_7.area())
 
     def test_display(self):
+        """Comentario"""
         r_8 = Rectangle(2, 2)
         self.assertEqual(None, r_8.display())
+        r1 = Rectangle(1, 2)
+        with mock.patch("sys.stdout", new=io.StringIO()) as f:
+            r1.display()
+        assert f.getvalue() == "#\n#\n"
+        r2 = Rectangle(1, 2, 1)
+        with mock.patch("sys.stdout", new=io.StringIO()) as f:
+            r2.display()
+        assert f.getvalue() == " #\n #\n"
+        r3 = Rectangle(1, 2, 1, 1)
+        with mock.patch("sys.stdout", new=io.StringIO()) as f:
+            r3.display()
+        assert f.getvalue() == "\n #\n #\n"
 
     def test_str(self):
         r_14 = Rectangle(3, 3)
@@ -92,7 +108,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(x_2.y, 20)
         self.assertEqual(x_2.width, 20)
         self.assertEqual(x_2.height, 20)
-        self.assertEqual(x_2.id, 31)
+        self.assertEqual(x_2.id, 34)
 
         x_2.update(x=3, id=100, height=7, y=4, width=10)
         self.assertEqual(x_2.x, 3)
@@ -104,13 +120,13 @@ class TestRectangle(unittest.TestCase):
     def test_to_dictionary(self):
         """Comentario"""
         r_10 = Rectangle(56, 34, 24, 12)
-        out = {'id': 26, 'width': 56, 'height': 34, 'x': 24, 'y': 12}
+        out = {'id': 29, 'width': 56, 'height': 34, 'x': 24, 'y': 12}
         self.assertEqual(out, r_10.to_dictionary())
         r_11 = Rectangle(10, 4, 3)
-        out = {'id': 27, 'width': 10, 'height': 4, 'x': 3, 'y': 0}
+        out = {'id': 30, 'width': 10, 'height': 4, 'x': 3, 'y': 0}
         self.assertEqual(out, r_11.to_dictionary())
         r_12 = Rectangle(5, 5)
-        out = {'id': 28, 'width': 5, 'height': 5, 'x': 0, 'y': 0}
+        out = {'id': 31, 'width': 5, 'height': 5, 'x': 0, 'y': 0}
         self.assertEqual(out, r_12.to_dictionary())
         r_13 = Rectangle(5, 5, 5, 5, 99)
         out = {'id': 99, 'width': 5, 'height': 5, 'x': 5, 'y': 5}

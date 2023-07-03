@@ -7,7 +7,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 
 
-class To_json_string(unittest.TestCase):
+class TestBase(unittest.TestCase):
     """Comentario"""
 
     def test_init(self):
@@ -16,6 +16,7 @@ class To_json_string(unittest.TestCase):
         obj_2 = Base(99)
         self.assertEqual(2, obj_1.id)
         self.assertEqual(99, obj_2.id)
+        self.assertEqual(Base("3").id, "3")
 
     def test_to_json_string(self):
         """Comentario"""
