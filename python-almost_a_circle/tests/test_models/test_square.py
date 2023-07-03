@@ -40,13 +40,13 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(ValueError, Square, 1, -2, 3, 4)
         self.assertRaises(ValueError, Square, 1, 2, -3, 4)
 
-    def test_save_to_file(self):
+    def test_save_to_file_empty_list(self):
         """Comentario"""
         Square.save_to_file([])
         with open("Square.json", "r") as f:
             self.assertEqual("[]", f.read())
 
-    def test_save_to_file(self):
+    def test_save_to_file_None(self):
         """Comentario"""
         Square.save_to_file(None)
         with open("Square.json", "r") as f:
