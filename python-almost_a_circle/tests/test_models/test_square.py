@@ -40,27 +40,48 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(ValueError, Square, 1, -2, 3, 4)
         self.assertRaises(ValueError, Square, 1, 2, -3, 4)
 
-    def test_save_to_file_empty_list(self):
-        """Comentario"""
+    def test_save_to_file(self):
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.readline(), '[]')
+        r1 = Rectangle(3, 4)
+        r2 = Rectangle(5, 4)
+        Rectangle.save_to_file([r1, r2])
+        file_1 = r1.to_dictionary()
+        file_2 = r2.to_dictionary()
+        file_ = [file_1, file_2]
+        str_json = Rectangle.to_json_string(file_)
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.readline(), str_json)
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.readline(), '[]')
+        r3 = Rectangle(1, 2)
+        r4 = Rectangle(3, 4)
+        Rectangle.save_to_file([r3, r4])
+        file_3 = r3.to_dictionary()
+        file_4 = r4.to_dictionary()
+        file_ = [file_3, file_4]
+        str_json = Rectangle.to_json_string(file_)
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.readline(), str_json)
         Square.save_to_file([])
         with open("Square.json", "r") as f:
-            self.assertEqual("[]", f.read())
-
-    def test_save_to_file_None(self):
-        """Comentario"""
+            self.assertEqual(f.readline(), '[]')
+        s1 = Square(3)
+        s2 = Square(5)
+        Square.save_to_file([s1, s2])
+        file_1 = s1.to_dictionary()
+        file_2 = s2.to_dictionary()
+        file_ = [file_1, file_2]
+        str_json = Square.to_json_string(file_)
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.readline(), str_json)
         Square.save_to_file(None)
         with open("Square.json", "r") as f:
-            self.assertEqual("[]", f.read())
+            self.assertEqual(f.readline(), '[]')
 
-    def test_save_to_file(self):
-        """Comentario"""
-        Square.save_to_file(None)
-        with open("Square.json", "r") as f:
-            self.assertEqual("[]", f.read())
-        s = Square(10, 7, 2, 8)
-        Square.save_to_file([s])
-        with open("Square.json", "r") as f:
-            self.assertTrue(len(f.read()) == 39)
+
 
 
 if __name__ == '__main__':
