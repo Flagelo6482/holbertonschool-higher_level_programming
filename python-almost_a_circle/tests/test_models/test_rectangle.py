@@ -87,9 +87,17 @@ class TestRectangle(unittest.TestCase):
         assert f.getvalue() == "\n #\n #\n"
 
     def test_str(self):
-        r_14 = Rectangle(3, 3)
-        out = r_14.__str__()
-        self.assertEqual(out, r_14.__str__())
+        """Test for the __str__ method"""
+        r1 = Rectangle(3, 4, 2, 1, 15)
+        rst = "[Rectangle] (15) 2/1 - 3/4\n"
+        with mock.patch("sys.stdout", new=io.StringIO()) as fake_stdout:
+            print(r1)
+        assert fake_stdout.getvalue() == rst
+        r2 = Rectangle(10, 11, 12, 0, 18)
+        rst_2 = "[Rectangle] (18) 12/0 - 10/11\n"
+        with mock.patch("sys.stdout", new=io.StringIO()) as fake_stdout:
+            print(r2)
+        assert fake_stdout.getvalue() == rst_2
 
     def test_update(self):
         r_9 = Rectangle(20, 20, 20, 20)
@@ -108,7 +116,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(x_2.y, 20)
         self.assertEqual(x_2.width, 20)
         self.assertEqual(x_2.height, 20)
-        self.assertEqual(x_2.id, 34)
+        self.assertEqual(x_2.id, 33)
 
         x_2.update(x=3, id=100, height=7, y=4, width=10)
         self.assertEqual(x_2.x, 3)
@@ -120,13 +128,13 @@ class TestRectangle(unittest.TestCase):
     def test_to_dictionary(self):
         """Comentario"""
         r_10 = Rectangle(56, 34, 24, 12)
-        out = {'id': 29, 'width': 56, 'height': 34, 'x': 24, 'y': 12}
+        out = {'id': 28, 'width': 56, 'height': 34, 'x': 24, 'y': 12}
         self.assertEqual(out, r_10.to_dictionary())
         r_11 = Rectangle(10, 4, 3)
-        out = {'id': 30, 'width': 10, 'height': 4, 'x': 3, 'y': 0}
+        out = {'id': 29, 'width': 10, 'height': 4, 'x': 3, 'y': 0}
         self.assertEqual(out, r_11.to_dictionary())
         r_12 = Rectangle(5, 5)
-        out = {'id': 31, 'width': 5, 'height': 5, 'x': 0, 'y': 0}
+        out = {'id': 30, 'width': 5, 'height': 5, 'x': 0, 'y': 0}
         self.assertEqual(out, r_12.to_dictionary())
         r_13 = Rectangle(5, 5, 5, 5, 99)
         out = {'id': 99, 'width': 5, 'height': 5, 'x': 5, 'y': 5}
